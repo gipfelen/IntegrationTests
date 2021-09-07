@@ -1,0 +1,48 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+mainClassName = 'at.uibk.dps.ee.guice.starter.EeConfiguration'
+
+repositories {
+  mavenCentral()
+  maven {
+    name "jitpack"
+    url 'https://jitpack.io'
+  }
+}
+
+dependencies {
+  // dependencies to the other Apollo-Core repos (JitPack/GitHub)
+  implementation 'com.github.Apollo-Core:EE-Core:master-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-Guice:main-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-Model:main-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-IO:main-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-Enactables:master-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-Control:master-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-Visualization:master-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:SC-Core:main-SNAPSHOT'
+  implementation 'com.github.Apollo-Core:EE-Deploy:master-SNAPSHOT'
+
+  // dependencies to Opt4 and OpenDse (JitPack/GitHub)
+  implementation 'com.github.FedorSmirnov89:opt4j:-SNAPSHOT'
+  implementation 'com.github.FedorSmirnov89:opendse:-SNAPSHOT'
+  
+  // other dependencies
+  implementation 'com.google.code.gson:gson:2.8.6'
+
+  // test dependencies
+  testImplementation(platform('org.junit:junit-bom:5.7.2'))
+  testImplementation('org.junit.jupiter:junit-jupiter')
+}
+
+test {
+  useJUnitPlatform()
+}
