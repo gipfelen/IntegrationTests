@@ -55,9 +55,4 @@ class IntegrationTests {
     IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iTestBlock);
     iTest.runIntegrationTest();
   }
-  
-  @Test
-  void failing() {
-    fail();
-  }
 }
