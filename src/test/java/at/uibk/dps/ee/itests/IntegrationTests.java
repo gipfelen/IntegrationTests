@@ -1,5 +1,6 @@
 package at.uibk.dps.ee.itests;
 
+import static org.junit.jupiter.api.Assertions.fail;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -54,5 +55,9 @@ class IntegrationTests {
     IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iTestBlock);
     iTest.runIntegrationTest();
   }
-
+  
+  @Test
+  void failing() {
+    fail();
+  }
 }
