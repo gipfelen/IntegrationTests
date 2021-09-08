@@ -14,6 +14,6 @@ jobs:
         with:
           java-version: 14
       - name: Grant execute permission for gradlew
-        run: chmod +x Integration_Test/gradlew
+        run: chmod +x gradlew
       - name: Build with Gradle
-        run: cd Integration_Test && ./gradlew build      
+        run: cd gradlew build      
