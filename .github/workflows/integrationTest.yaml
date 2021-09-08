@@ -1,6 +1,9 @@
 name: Integration Tests
 on:   
+  push:
   repository_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 jobs:
   Integration_Tests:
     runs-on: ubuntu-latest
