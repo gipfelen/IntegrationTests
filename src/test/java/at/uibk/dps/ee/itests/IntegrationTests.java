@@ -54,4 +54,18 @@ class IntegrationTests {
     IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iTestBlock);
     iTest.runIntegrationTest();
   }
+
+  @Test
+  @Timeout(value = 5, unit = TimeUnit.SECONDS)
+  void testSplit() {
+    IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iTestSplit);
+    iTest.runIntegrationTest();
+  }
+
+  @Test
+  @Timeout(value = 5, unit = TimeUnit.SECONDS)
+  void testWhile() {
+    IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iTestWhile);
+    iTest.runIntegrationTest();
+  }
 }

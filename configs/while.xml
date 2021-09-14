@@ -1,12 +1,12 @@
 <configuration>
   <module class="at.uibk.dps.ee.control.modules.EnactmentVerticleModule"/>
   <module class="at.uibk.dps.ee.io.modules.InputReaderFileModule">
-    <property name="filePath">./inputData/block.json</property>
+    <property name="filePath">./inputData/while.json</property>
   </module>
   <module class="at.uibk.dps.ee.io.modules.OutputPrinterModule"/>
   <module class="at.uibk.dps.ee.io.modules.SpecificationInputModule">
-    <property name="filePathAfcl">./demoWfs/block.yaml</property>
-    <property name="filePathMappingFile">./typeMappings/block.json</property>
+    <property name="filePathAfcl">./afcl/while.yaml</property>
+    <property name="filePathMappingFile">./typeMappings/while.json</property>
   </module>
   <module class="at.uibk.dps.ee.visualization.modules.EnactmentViewerModule">
     <property name="closeOnTerminate">false</property>
