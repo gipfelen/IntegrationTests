@@ -1,0 +1,51 @@
+---
+name: "replicate"
+dataIns:
+  - name: "numberToReplicate"
+    type: "number"
+    source: "numberToReplicate"
+  - name: "elements"
+    type: "collection"
+    source: "elements"
+workflowBody:
+  - parallelFor:
+      name: "forEach"
+      dataIns:
+        - name: "elements"
+          type: "collection"
+          source: "replicate/elements"
+        - name: "number"
+          type: "number"
+          source: "replicate/numberToReplicate"
+          constraints:
+            - name: "replicate"
+              value: "*"
+      iterators: ["elements", "number"]
+      loopBody:
+        - function:
+            name: "addition_Demo"
+            type: "Addition"
+            dataIns:
+              - name: "firstSummand"
+                type: "collection"
+                source: "forEach/elements"
+                constraints:
+                  - name: "element-index"
+                    value: "0"
+              - name: "secondSummand"
+                type: "number"
+                source: "forEach/number"
+              - name: "waitTimeIn"
+                type: "number"
+                source: 200
+            dataOuts:
+              - name: "sum"
+                type: "number"
+      dataOuts:
+        - name: "result"
+          type: "collection"
+          source: "addition_Demo/sum"
+dataOuts:
+  - name: "result"
+    type: "collection"
+    source: "forEach/result"

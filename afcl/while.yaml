@@ -1,16 +1,16 @@
 ---
-name: "simpleWhile"
+name: "while"
 dataIns:
   - name: "input"
     type: "number"
     source: "inputSource"
 workflowBody:
   - while:
-      name: "while"
+      name: "whileBody"
       dataIns:
         - name: "sum"
           type: "number"
-          source: "simpleWhile/input"
+          source: "while/input"
       loopBody:
         - function:
             name: "increment"
@@ -18,7 +18,7 @@ workflowBody:
             dataIns:
               - name: "firstSummand"
                 type: "number"
-                source: "while/sum"
+                source: "whileBody/sum"
               - name: "secondSummand"
                 type: "number"
                 source: 1
@@ -29,9 +29,10 @@ workflowBody:
               - name: "sum"
                 type: "number"
       condition:
-        - data1: "while/sum"
+        - data1: "increment/sum"
           data2: 5
-          operator: "!="
+          type: "number"
+          operator: "<"
           negation: "false"
           combinedWith: "and"
       dataOuts:
@@ -41,4 +42,4 @@ workflowBody:
 dataOuts:
   - name: "overallOutput"
     type: "number"
-    source: "while/sum"
+    source: "whileBody/sum"

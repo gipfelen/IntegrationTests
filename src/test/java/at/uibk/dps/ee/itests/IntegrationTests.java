@@ -64,6 +64,20 @@ class IntegrationTests {
 
   @Test
   @Timeout(value = 5, unit = TimeUnit.SECONDS)
+  void testReplicate() {
+    IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iReplicate);
+    iTest.runIntegrationTest();
+  }
+
+  @Test
+  @Timeout(value = 5, unit = TimeUnit.SECONDS)
+  void testReplicateTimes() {
+    IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iReplicateTimes);
+    iTest.runIntegrationTest();
+  }
+
+  @Test
+  //@Timeout(value = 5, unit = TimeUnit.SECONDS)
   void testWhile() {
     IntegrationTest iTest = new IntegrationTest(ConstantsIntegrationTests.iTestWhile);
     iTest.runIntegrationTest();
